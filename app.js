@@ -1,7 +1,7 @@
 // Padasalai.Net Interactive Application Engine
 document.addEventListener('DOMContentLoaded', () => {
-  // Application State
-  let currentClass = '11th';
+  // Application State - Persistent standard selection across pages
+  let currentClass = localStorage.getItem('padasalai_class') || '11th';
   let currentExamCategory = 'quarterly';
   let activeYearFilter = 'All';
   let savedBookmarks = JSON.parse(localStorage.getItem('padasalai_bookmarks') || '[]');
@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Initialize UI
   initTheme();
+  highlightActiveNavigationLink();
   renderClassTabs();
   renderSchoolGuides();
   updateBooksSection();
@@ -78,6 +79,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Highlight Active Link in Header
+  function highlightActiveNavigationLink() {
+    const path = window.location.pathname;
+    const pageName = path.split("/").pop() || "index.html";
+    
+    document.querySelectorAll('.nav-menu-links .nav-link').forEach(link => {
+      const linkHref = link.getAttribute('href');
+      if (linkHref === pageName || (pageName === "index.html" && linkHref === "#") || (pageName === "index.html" && linkHref === "index.html")) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
+  }
+
   // Render Class Selector Tabs
   function renderClassTabs() {
     if (!classTabsContainer) return;
@@ -94,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     classTabsContainer.querySelectorAll('.class-tab-pill').forEach(btn => {
       btn.addEventListener('click', (e) => {
         currentClass = e.currentTarget.getAttribute('data-class');
+        localStorage.setItem('padasalai_class', currentClass);
         renderClassTabs();
         updateBooksSection();
         renderSubjects();
@@ -113,7 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resources = PADASALAI_DATA.booksAndSyllabus[currentClass] || PADASALAI_DATA.booksAndSyllabus["default"];
     
-    // Bind link attributes and text
     if (booksLinkPdf) {
       booksLinkPdf.href = resources.booksUrl;
       booksLinkPdf.querySelector('.bullet-link-text').textContent = `${className} School Books PDF`;
@@ -192,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  // Render Exam Archives (Quarterly, Half Yearly, Public)
+  // Render Exam Archives
   function renderExamArchives() {
     renderYearPills();
     renderExamList();
@@ -219,16 +235,13 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderExamList(filteredQuery = "") {
     if (!examListContainer) return;
     
-    // Select class specific exam list or fallback
     const classExams = PADASALAI_DATA.examArchives[currentClass] || PADASALAI_DATA.examArchives["default"];
     const list = classExams[currentExamCategory] || [];
     
-    // Filter by Year
     let filtered = activeYearFilter === 'All' 
       ? list 
       : list.filter(item => item.year.includes(activeYearFilter));
 
-    // Filter by Search Query
     const query = filteredQuery.trim().toLowerCase();
     if (query !== "") {
       filtered = filtered.filter(item => 
@@ -306,36 +319,74 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  // Set up smart navigation for TOC links
+  // Smart Navigation Routing across separate pages or tabs
   function setupSmartTOCScroll() {
     document.addEventListener('click', (e) => {
       const link = e.target.closest('[data-toc-target]');
       if (!link) return;
       
-      e.preventDefault();
       const targetId = link.getAttribute('data-toc-target');
       closeTOC();
 
-      let targetElement = document.getElementById(targetId);
+      const path = window.location.pathname;
+      const pageName = path.split("/").pop() || "index.html";
 
-      // Smart routing fallback for nested categories
-      if (targetId === 'sec-halfyearly') {
-        targetElement = document.getElementById('sec-quarterly');
-        // Click Half-Yearly tab
-        const tab = document.querySelector('[data-exam-cat="halfYearly"]');
-        if (tab) tab.click();
-      } else if (targetId === 'sec-public') {
-        targetElement = document.getElementById('sec-quarterly');
-        // Click Public Exam tab
-        const tab = document.querySelector('[data-exam-cat="publicExam"]');
-        if (tab) tab.click();
-      } else if (targetId === 'sec-lesson-plans') {
-        // Scroll to the Teachers Corner sidebar widget
-        targetElement = document.querySelector('.left-sidebar .card-widget:nth-child(2)');
+      // 1. Target: textbooks (books.html)
+      if (targetId === 'sec-books') {
+        if (pageName !== "books.html") {
+          window.location.href = "books.html";
+          return;
+        }
+      }
+      
+      // 2. Target: Teachers Corner (teachers-corner.html)
+      if (targetId === 'sec-lesson-plans') {
+        if (pageName !== "teachers-corner.html") {
+          window.location.href = "teachers-corner.html";
+          return;
+        }
       }
 
+      // 3. Target: Subject study materials (study-materials.html)
+      if (targetId === 'sec-study-materials') {
+        if (pageName !== "study-materials.html") {
+          window.location.href = "study-materials.html";
+          return;
+        }
+      }
+
+      // 4. Target: Exams archives (exams.html)
+      if (targetId === 'sec-quarterly' || targetId === 'sec-halfyearly' || targetId === 'sec-public') {
+        if (pageName !== "exams.html") {
+          let category = "quarterly";
+          if (targetId === "sec-halfyearly") category = "halfYearly";
+          if (targetId === "sec-public") category = "publicExam";
+          // Redirect with hash and query param to specify category
+          window.location.href = `exams.html?cat=${category}`;
+          return;
+        } else {
+          // We are already on exams.html
+          let category = "quarterly";
+          if (targetId === "sec-halfyearly") category = "halfYearly";
+          if (targetId === "sec-public") category = "publicExam";
+          const tab = document.querySelector(`[data-exam-cat="${category}"]`);
+          if (tab) tab.click();
+        }
+      }
+
+      // 5. Target: Competitive Exams (competitive-exams.html)
+      if (targetId === 'sec-exams') {
+        if (pageName !== "competitive-exams.html") {
+          window.location.href = "competitive-exams.html";
+          return;
+        }
+      }
+
+      // If we are on the correct page, do scroll
+      const targetElement = document.getElementById(targetId);
       if (targetElement) {
-        const offset = 80; // Header size offset
+        e.preventDefault();
+        const offset = 80;
         const bodyRect = document.body.getBoundingClientRect().top;
         const elementRect = targetElement.getBoundingClientRect().top;
         const elementPosition = elementRect - bodyRect;
@@ -347,6 +398,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
     });
+
+    // Check query parameters on load for exams.html
+    const path = window.location.pathname;
+    const pageName = path.split("/").pop() || "index.html";
+    if (pageName === "exams.html") {
+      const urlParams = new URLSearchParams(window.location.search);
+      const cat = urlParams.get('cat');
+      if (cat) {
+        const tab = document.querySelector(`[data-exam-cat="${cat}"]`);
+        if (tab) {
+          tab.click();
+          // Remove query params from address bar without page reload
+          window.history.replaceState({}, document.title, window.location.pathname);
+        }
+      }
+    }
   }
 
   // Floating TOC Toggle
@@ -369,7 +436,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Synchronized Dual Search Bars Functionality
   function performLiveSearch(query) {
-    // Synchronize values of both search inputs
     if (searchInputHeader && searchInputHeader.value !== query) {
       searchInputHeader.value = query;
     }
@@ -480,7 +546,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const bookmark = savedBookmarks.find(b => b.url === url);
         if (bookmark) {
           toggleBookmark(bookmark.title, bookmark.category, url);
-          renderBookmarkedList(); // Rerender current list
+          renderBookmarkedList();
         }
       });
     });
@@ -532,13 +598,11 @@ document.addEventListener('DOMContentLoaded', () => {
     toast.innerHTML = `<i class="fas fa-info-circle" style="color: var(--accent-coral);"></i> <span>${msg}</span>`;
     document.body.appendChild(toast);
     
-    // Animate in
     setTimeout(() => {
       toast.style.opacity = '1';
       toast.style.transform = 'translateX(-50%) translateY(0)';
     }, 50);
 
-    // Animate out
     setTimeout(() => {
       toast.style.opacity = '0';
       toast.style.transform = 'translateX(-50%) translateY(20px)';

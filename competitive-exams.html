@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Padasalai.Net - Competitive & Entrance Exams</title>
+  
+  <!-- Google Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@400;600;700;800&family=Oswald:wght@500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Top Social Channel Ribbon -->
+  <div class="top-social-ribbon">
+    <div class="ribbon-container">
+      <div class="ribbon-left">
+        <span class="ribbon-badge"><i class="fas fa-fire"></i> Official Portal</span>
+        <span>Tamil Nadu School Education News, Study Materials & Answer Keys</span>
+      </div>
+      <div class="ribbon-socials">
+        <a href="https://t.me/Padasalai_official" target="_blank" class="social-icon-btn"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://whatsapp.com/channel/0029VaAqUqk9Bb672tBn033m" target="_blank" class="social-icon-btn"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.youtube.com/@Padasalai-net" target="_blank" class="social-icon-btn"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.facebook.com/padasalai.net" target="_blank" class="social-icon-btn"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://x.com/PadasalaiNet" target="_blank" class="social-icon-btn"><i class="fab fa-x-twitter"></i></a>
+        <a href="mailto:padasalai.net@gmail.com" class="social-icon-btn"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Slate-Blue Header Bar -->
+  <header class="header-navigation">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">P</div>
+        <div class="brand-titles">
+          <span class="brand-name">Padasalai.Net</span>
+          <span class="brand-sub">பாடசாலை.நெட் - No.1 Educational Website</span>
+        </div>
+      </a>
+
+      <!-- Header Navigation Links -->
+      <ul class="nav-menu-links">
+        <li><a href="index.html" class="nav-link">Home</a></li>
+        <li><a href="books.html" class="nav-link">Textbooks</a></li>
+        <li><a href="study-materials.html" class="nav-link">Study Materials</a></li>
+        <li><a href="exams.html" class="nav-link">Exams Archive</a></li>
+        <li><a href="competitive-exams.html" class="nav-link active">Competitive Exams</a></li>
+        <li><a href="teachers-corner.html" class="nav-link">Teachers Corner</a></li>
+      </ul>
+
+      <!-- Right Header Actions -->
+      <div class="header-actions">
+        <div class="header-search-bar">
+          <input type="text" id="searchInputHeader" class="header-search-input" placeholder="Search...">
+          <i class="fas fa-search header-search-icon"></i>
+        </div>
+        <button id="userProfileBtn" class="user-profile-btn" title="User Profile">
+          <div class="user-avatar-circle"><i class="fas fa-user"></i></div>
+          <span>பயனர்</span>
+        </button>
+        <button id="themeToggleBtn" class="theme-toggle-btn" title="Toggle Theme">
+          <i class="fas fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="main-wrapper">
+
+    <!-- 3-Column Content Grid -->
+    <div class="content-grid-layout" style="margin-top: 24px;">
+
+      <!-- LEFT SIDEBAR -->
+      <aside class="left-sidebar">
+        <div class="card-widget">
+          <div class="widget-title-bar">
+            <span>School Guides</span>
+            <i class="fas fa-book-open" style="color: var(--accent-coral);"></i>
+          </div>
+          <div class="guide-list-items" id="schoolGuidesContainer">
+            <!-- Injected dynamically by JS -->
+          </div>
+        </div>
+      </aside>
+
+      <!-- MAIN BODY CONTENT -->
+      <main class="main-content-body">
+        <!-- Section: Competitive & Entrance Exams -->
+        <section class="section-card" id="sec-exams">
+          <div class="section-header">
+            <h2 class="section-header-title">Competitive & Entrance Exams</h2>
+            <span class="bullet-badge" style="background: rgba(139,92,246,0.1); color: var(--accent-violet);"><i class="fas fa-graduation-cap"></i> NEET / TRB / NMMS</span>
+          </div>
+
+          <div class="subjects-grid" id="competitiveExamsGrid">
+            <!-- Injected dynamically by JS -->
+          </div>
+        </section>
+      </main>
+
+      <!-- RIGHT SIDEBAR -->
+      <aside class="right-sidebar">
+        <div class="card-widget">
+          <div class="widget-title-bar">
+            <span>Popular Posts</span>
+            <i class="fas fa-fire" style="color: var(--accent-orange);"></i>
+          </div>
+          <div class="popular-posts-list" id="popularPostsContainer">
+            <!-- Injected dynamically by JS -->
+          </div>
+        </div>
+      </aside>
+
+    </div><!-- /content-grid-layout -->
+
+  </div><!-- /main-wrapper -->
+
+  <!-- Signature Tamil Footer Banner -->
+  <div class="tamil-footer-banner">
+    <h3 class="tamil-banner-text">80 கோடி பார்வைகள் - பாடசாலை.நெட் - நன்றி தமிழகம்!</h3>
+    <p class="tamil-subtext">800 Million Pageviews • Tamil Nadu's Premier Educational Portal</p>
+  </div>
+
+  <!-- Footer Info -->
+  <footer class="site-footer" id="sec-contact">
+    <p>© 2026 Padasalai.Net - All Rights Reserved.</p>
+  </footer>
+
+  <!-- Floating TOC Accordion Widget -->
+  <div class="floating-toc-widget">
+    <button id="tocToggleBtn" class="toc-toggle-btn" title="Quick Table of Contents">
+      <i class="fas fa-list-ul"></i>
+    </button>
+    <div id="tocPopover" class="toc-popover">
+      <div style="font-weight: 700; font-size: 0.9rem; color: var(--text-muted); margin-bottom: 6px; padding-bottom: 6px; border-bottom: 1px solid var(--border-subtle);">
+        QUICK CONTENTS
+      </div>
+      <div id="tocListContainer">
+        <!-- Injected dynamically by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Glassmorphic PDF Reader / Download Modal -->
+  <div id="pdfModalBackdrop" class="modal-backdrop">
+    <div class="pdf-modal-box">
+      <button id="modalCloseBtn" class="modal-close-btn" title="Close"><i class="fas fa-times"></i></button>
+      <div style="display: flex; gap: 16px; align-items: flex-start;">
+        <div class="modal-header-icon"><i class="fas fa-file-pdf"></i></div>
+        <div style="flex: 1;">
+          <span id="modalCategory" class="bullet-badge" style="margin-bottom: 6px; display: inline-block;">Category</span>
+          <h3 id="modalTitle" style="font-size: 1.25rem; line-height: 1.3; color: var(--text-main);">Resource Title</h3>
+        </div>
+      </div>
+      <div style="background: var(--bg-card-subtle); padding: 14px; border-radius: var(--radius-md); font-size: 0.88rem; color: var(--text-muted); border: 1px solid var(--border-subtle);">
+        <p><i class="fas fa-shield-alt" style="color: var(--accent-emerald);"></i> Verified Safe Educational Download.</p>
+      </div>
+      <div class="modal-actions-bar">
+        <a id="modalLink" href="#" target="_blank" class="btn-download-primary"><i class="fas fa-download"></i> Download PDF</a>
+        <button id="modalBookmarkBtn" class="btn-bookmark-secondary"><i class="far fa-bookmark"></i> Bookmark</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile & Bookmarks Popover Modal -->
+  <div id="profileModalBackdrop" class="modal-backdrop">
+    <div class="pdf-modal-box" style="max-width: 500px;">
+      <button id="profileModalCloseBtn" class="modal-close-btn" title="Close"><i class="fas fa-times"></i></button>
+      <div style="display: flex; gap: 16px; align-items: center; border-bottom: 2px solid var(--border-subtle); padding-bottom: 12px; margin-bottom: 16px;">
+        <div class="modal-header-icon" style="width: 48px; height: 48px; font-size: 1.3rem;"><i class="fas fa-user-circle"></i></div>
+        <div style="flex: 1; min-width: 0;">
+          <h3 style="font-size: 1.15rem; font-weight: 700; color: var(--text-main);">சுயவிவரம் (Profile Manager)</h3>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">View and manage your bookmarked resources</p>
+        </div>
+      </div>
+      <div>
+        <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 10px; color: var(--text-main); display: flex; align-items: center; gap: 6px;"><i class="fas fa-bookmark" style="color: var(--accent-coral);"></i> <span>Saved Bookmarks</span></h4>
+        <div id="profileBookmarksList" style="max-height: 260px; overflow-y: auto; padding-right: 4px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript Datasets & Logic -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

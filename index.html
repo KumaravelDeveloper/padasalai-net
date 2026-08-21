@@ -51,11 +51,12 @@
 
       <!-- Header Navigation Links -->
       <ul class="nav-menu-links">
-        <li><a href="#" class="nav-link">Home</a></li>
-        <li><a href="#sec-study-materials" class="nav-link">Students</a></li>
-        <li><a href="#sec-lesson-plans" class="nav-link">Teachers</a></li>
-        <li><a href="#sec-quarterly" class="nav-link">Downloads</a></li>
-        <li><a href="#sec-exams" class="nav-link">Exams</a></li>
+        <li><a href="index.html" class="nav-link active">Home</a></li>
+        <li><a href="books.html" class="nav-link">Textbooks</a></li>
+        <li><a href="study-materials.html" class="nav-link">Study Materials</a></li>
+        <li><a href="exams.html" class="nav-link">Exams Archive</a></li>
+        <li><a href="competitive-exams.html" class="nav-link">Competitive Exams</a></li>
+        <li><a href="teachers-corner.html" class="nav-link">Teachers Corner</a></li>
       </ul>
 
       <!-- Right Header Actions (Search, Profile, Dark Mode) -->
@@ -78,7 +79,7 @@
   <!-- Main Container -->
   <div class="main-wrapper">
 
-    <!-- Featured Hero Banner Section (SURA Guides) -->
+    <!-- Featured Hero Banner Section -->
     <div class="featured-hero-box">
       <div class="featured-hero-left">
         <div class="featured-book-img-wrap">
@@ -97,7 +98,7 @@
       </a>
     </div>
 
-    <!-- Class Selector Tabs Bar (12th down to 1-5th) -->
+    <!-- Class Selector Tabs Bar (Synchronized with localStorage) -->
     <div class="class-tabs-container" id="classTabsContainer">
       <!-- Injected dynamically by JS -->
     </div>
@@ -105,7 +106,7 @@
     <!-- 3-Column Content Grid -->
     <div class="content-grid-layout">
 
-      <!-- LEFT SIDEBAR: School Guides & Teachers Corner -->
+      <!-- LEFT SIDEBAR: School Guides -->
       <aside class="left-sidebar">
         <div class="card-widget">
           <div class="widget-title-bar">
@@ -116,113 +117,68 @@
             <!-- Injected dynamically by JS -->
           </div>
         </div>
-
-        <!-- Teachers Corner Box -->
-        <div class="card-widget" style="background: linear-gradient(135deg, rgba(59, 108, 143, 0.08), rgba(238, 93, 56, 0.08));">
-          <div class="widget-title-bar">
-            <span>Teachers Corner</span>
-            <i class="fas fa-chalkboard-teacher" style="color: var(--accent-blue);"></i>
-          </div>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px;">Lesson plans, notes of lesson, weekly syllabus & administrative forms.</p>
-          <a href="https://www.padasalai.net/2019/10/lesson-plan-notes-of-lesson-download-for-1st-2nd-3rd-4th-5th-6th-7th-8th-Standards.html" target="_blank" class="btn-coral-cta" style="width: 100%; justify-content: center; font-size: 0.9rem; padding: 10px;" onclick="openPdfModal(event, 'Lesson Plans / Notes of Lesson', 'Teachers Corner', 'https://www.padasalai.net/2019/10/lesson-plan-notes-of-lesson-download-for-1st-2nd-3rd-4th-5th-6th-7th-8th-Standards.html')">
-            <i class="fas fa-file-signature"></i> Download Lesson Plans
-          </a>
-        </div>
       </aside>
 
-      <!-- MAIN BODY CONTENT -->
+      <!-- MAIN BODY CONTENT: Section Hub / Dashboard Link Cards -->
       <main class="main-content-body">
-
-        <!-- Section: School Books & Syllabus -->
-        <section class="section-card" id="sec-books">
-          <div class="section-header">
-            <h2 class="section-header-title">Textbooks & Syllabus</h2>
-            <span class="bullet-badge"><i class="fas fa-check-circle"></i> Official 2026-2027</span>
+        <section class="section-card">
+          <div class="section-header" style="margin-bottom: 8px;">
+            <h2 class="section-header-title">Educational Resources Sections</h2>
+            <span class="bullet-badge" style="background: rgba(59, 130, 246, 0.1); color: var(--accent-blue);"><i class="fas fa-th-large"></i> Dashboard Home</span>
           </div>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 24px;">Please choose a section below to browse, view, and download study resources, syllabus content, and exam question archives.</p>
 
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px;">
-            <a href="#" target="_blank" class="bullet-link-item">
-              <div class="bullet-dot" style="background: var(--accent-coral);"></div>
-              <span class="bullet-link-text">School Books PDF</span>
-              <i class="fas fa-download" style="color: var(--accent-coral);"></i>
+          <div class="dashboard-grid">
+            <!-- Link 1: Textbooks & Syllabus -->
+            <a href="books.html" class="dashboard-card">
+              <div class="dashboard-icon-wrap gradient-rose">
+                <i class="fas fa-book"></i>
+              </div>
+              <h3 class="dashboard-title">Textbooks & Syllabus</h3>
+              <p class="dashboard-desc">Download official school textbooks, syllabi, practical guides and internal marks information.</p>
             </a>
 
-            <a href="#" target="_blank" class="bullet-link-item">
-              <div class="bullet-dot" style="background: var(--accent-blue);"></div>
-              <span class="bullet-link-text">Syllabus PDF</span>
-              <i class="fas fa-file-alt" style="color: var(--accent-blue);"></i>
+            <!-- Link 2: Study Materials -->
+            <a href="study-materials.html" class="dashboard-card">
+              <div class="dashboard-icon-wrap gradient-indigo">
+                <i class="fas fa-folder-open"></i>
+              </div>
+              <h3 class="dashboard-title">Study Materials</h3>
+              <p class="dashboard-desc">Access chapter-wise notes, guides, and question banks for all core subject areas.</p>
             </a>
 
-            <a href="#" target="_blank" class="bullet-link-item">
-              <div class="bullet-dot" style="background: var(--accent-emerald);"></div>
-              <span class="bullet-link-text">Practical Materials</span>
-              <i class="fas fa-vial" style="color: var(--accent-emerald);"></i>
+            <!-- Link 3: Exams Archive -->
+            <a href="exams.html" class="dashboard-card">
+              <div class="dashboard-icon-wrap gradient-orange">
+                <i class="fas fa-file-invoice"></i>
+              </div>
+              <h3 class="dashboard-title">Exams Archive</h3>
+              <p class="dashboard-desc">Browse past exam papers, official keys, and schedules for Quarterly, Half-Yearly & Board Exams.</p>
             </a>
-          </div>
-        </section>
 
-        <!-- Section: Subject Study Materials Grid -->
-        <section class="section-card" id="sec-study-materials">
-          <div class="section-header">
-            <h2 class="section-header-title">Subject Study Materials</h2>
-            <p style="font-size: 0.9rem; color: var(--text-muted);">Comprehensive guides, notes, chapter-wise Q&A for Tamil & English Mediums</p>
-          </div>
+            <!-- Link 4: Competitive Exams -->
+            <a href="competitive-exams.html" class="dashboard-card">
+              <div class="dashboard-icon-wrap gradient-violet">
+                <i class="fas fa-graduation-cap"></i>
+              </div>
+              <h3 class="dashboard-title">Competitive Exams</h3>
+              <p class="dashboard-desc">Study guides and practice mock sets for NEET, TNTET, PGTRB, and NMMS entrance tests.</p>
+            </a>
 
-          <div class="subjects-grid" id="subjectsGrid">
-            <!-- Injected dynamically by JS -->
-          </div>
-        </section>
-
-        <!-- Section: Exam Question Papers Archive -->
-        <section class="section-card" id="sec-quarterly">
-          <div class="section-header">
-            <div>
-              <h2 class="section-header-title">Exam Questions & Answers</h2>
-              <p style="font-size: 0.9rem; color: var(--text-muted);">Question papers, answer keys & time tables from 2019 to 2027</p>
-            </div>
-
-            <!-- Exam Category Switcher Tabs -->
-            <div style="display: flex; gap: 8px;">
-              <button class="year-pill active" data-exam-cat="quarterly">Quarterly</button>
-              <button class="year-pill" data-exam-cat="halfYearly">Half Yearly</button>
-              <button class="year-pill" data-exam-cat="publicExam">Public Exam</button>
-            </div>
-          </div>
-
-          <!-- Exam Year Selector Pills -->
-          <div class="year-pills-bar" id="examPillsContainer">
-            <!-- Injected dynamically by JS -->
-          </div>
-
-          <!-- Bulleted Links List -->
-          <ul class="bullet-links-list" id="examListContainer">
-            <!-- Injected dynamically by JS -->
-          </ul>
-        </section>
-
-        <!-- Section: Competitive & Entrance Exams -->
-        <section class="section-card" id="sec-exams">
-          <div class="section-header">
-            <h2 class="section-header-title">Competitive & Entrance Exams</h2>
-            <span class="bullet-badge" style="background: rgba(139,92,246,0.1); color: var(--accent-violet);"><i class="fas fa-graduation-cap"></i> NEET / TRB / NMMS</span>
-          </div>
-
-          <div class="subjects-grid" id="competitiveExamsGrid">
-            <!-- Injected dynamically by JS -->
+            <!-- Link 5: Teachers Corner -->
+            <a href="teachers-corner.html" class="dashboard-card" style="grid-column: span 2;">
+              <div class="dashboard-icon-wrap gradient-emerald" style="margin-bottom: 12px;">
+                <i class="fas fa-chalkboard-teacher"></i>
+              </div>
+              <h3 class="dashboard-title">Teachers Corner</h3>
+              <p class="dashboard-desc">Download administrative forms, daily/weekly syllabi, notes of lesson, and lesson plans for all classes.</p>
+            </a>
           </div>
         </section>
       </main>
 
-      <!-- RIGHT SIDEBAR: Search & Popular Posts -->
+      <!-- RIGHT SIDEBAR: Popular Posts -->
       <aside class="right-sidebar">
-        <!-- Sidebar Search Widget -->
-        <div class="card-widget">
-          <div class="sidebar-search-box">
-            <input type="text" id="searchInputSidebar" class="sidebar-search-input" placeholder="Search materials...">
-            <i class="fas fa-search header-search-icon" style="left: 12px; color: var(--text-muted);"></i>
-          </div>
-        </div>
-
         <!-- Popular Posts Widget -->
         <div class="card-widget">
           <div class="widget-title-bar">
