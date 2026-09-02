@@ -1,6 +1,6 @@
 /* 
-  Padasalai.Net Modern Portal Styling
-  Slate-blue header (#3C6E91) matching mockup + vibrant student gradients
+  Padasalai.Net Modern Educational Portal Styling
+  Inspired by Skillba UI Architecture + Vibrant Educational Gradients
 */
 
 :root {
@@ -9,26 +9,28 @@
   --header-bg-end: #2d5573;
   --header-text: #ffffff;
   
-  --bg-main: #f3f6f9;
+  --bg-main: #f8fafc;
   --bg-card: #ffffff;
-  --bg-card-subtle: #f8fafc;
+  --bg-card-subtle: #f1f5f9;
+  --bg-section-alt: #f1f5f9;
   
   --text-main: #1e293b;
   --text-muted: #64748b;
   --text-inverse: #ffffff;
 
-  --accent-orange: #f97316;
+  --accent-orange: #f59e0b;
   --accent-coral: #ee5d38;
   --accent-coral-hover: #d94823;
   --accent-blue: #3b82f6;
   --accent-violet: #8b5cf6;
   --accent-emerald: #10b981;
+  --accent-green-check: #16a34a;
 
   --border-light: #e2e8f0;
   --border-subtle: #f1f5f9;
   --shadow-sm: 0 2px 4px rgba(0,0,0,0.04);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
-  --shadow-lg: 0 12px 28px rgba(0,0,0,0.12);
+  --shadow-md: 0 4px 14px rgba(0,0,0,0.07);
+  --shadow-lg: 0 14px 30px rgba(0,0,0,0.1);
   --shadow-glow: 0 8px 24px rgba(238, 93, 56, 0.25);
 
   --radius-sm: 8px;
@@ -48,13 +50,14 @@
   --bg-main: #0f172a;
   --bg-card: #1e293b;
   --bg-card-subtle: #334155;
+  --bg-section-alt: #162032;
   --text-main: #f8fafc;
   --text-muted: #94a3b8;
   --border-light: #334155;
   --border-subtle: #1e293b;
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.2);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.3);
-  --shadow-lg: 0 12px 28px rgba(0,0,0,0.4);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.25);
+  --shadow-md: 0 4px 14px rgba(0,0,0,0.35);
+  --shadow-lg: 0 14px 30px rgba(0,0,0,0.45);
 }
 
 /* Reset & Base */
@@ -75,10 +78,10 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   transition: background-color var(--transition-normal), color var(--transition-normal);
-  padding-bottom: 40px;
+  overflow-x: hidden;
 }
 
-/* Custom Scrollbar */
+/* Custom Scrollbars */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -96,15 +99,12 @@ body {
 [data-theme="dark"] ::-webkit-scrollbar-thumb {
   background: #475569;
 }
-[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
-  background: #64748b;
-}
 
 /* Typography & Links */
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-main);
   font-weight: 700;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 a {
@@ -113,7 +113,7 @@ a {
   transition: color var(--transition-fast);
 }
 
-/* Top Social Channel Ribbon */
+/* Top Social / Helpline Ribbon */
 .top-social-ribbon {
   background: #1e293b;
   color: #94a3b8;
@@ -129,28 +129,39 @@ a {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 12px;
 }
 .ribbon-left {
   display: flex;
   align-items: center;
-  gap: 15px;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 .ribbon-badge {
   background: linear-gradient(135deg, #ee5d38, #f97316);
   color: #fff;
-  padding: 2px 10px;
+  padding: 3px 12px;
   border-radius: var(--radius-pill);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+}
+.ribbon-helpline {
+  color: #cbd5e1;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+}
+.ribbon-helpline:hover {
+  color: #fff;
 }
 .ribbon-socials {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 10px;
 }
 .social-icon-btn {
   color: #cbd5e1;
@@ -161,7 +172,7 @@ a {
   width: 28px;
   height: 28px;
   border-radius: 50%;
-  background: rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.08);
   transition: var(--transition-fast);
 }
 .social-icon-btn:hover {
@@ -182,7 +193,7 @@ a {
 .nav-container {
   max-width: 1240px;
   margin: 0 auto;
-  padding: 14px 20px;
+  padding: 12px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -230,7 +241,7 @@ a {
 .nav-menu-links {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
   list-style: none;
 }
 .nav-link {
@@ -247,7 +258,7 @@ a {
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -2px;
   left: 0;
   width: 0;
   height: 2px;
@@ -267,7 +278,7 @@ a {
 }
 .header-search-bar {
   position: relative;
-  width: 220px;
+  width: 200px;
 }
 .header-search-input {
   width: 100%;
@@ -351,108 +362,86 @@ a {
   transform: rotate(15deg);
 }
 
-/* Main Layout Container */
-.main-wrapper {
-  max-width: 1240px;
-  margin: 24px auto 0;
-  padding: 0 20px;
+/* ==========================================================================
+   Skillba Architecture: Hero Value Section & Checklist Block
+   ========================================================================== */
+.block {
+  width: 100%;
+  position: relative;
 }
 
-/* Featured Hero Banner Section */
-.featured-hero-box {
-  background: linear-gradient(135deg, #e8f0fe 0%, #d2e3fc 100%);
-  border-radius: var(--radius-lg);
-  padding: 32px 40px;
-  margin-bottom: 28px;
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 30px;
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(66, 133, 244, 0.15);
+.block.welcome {
+  background: linear-gradient(135deg, #e8f0fe 0%, #dbeafe 100%);
+  padding: 50px 20px 60px;
+  text-align: center;
+  border-bottom: 1px solid rgba(66, 133, 244, 0.15);
 }
-[data-theme="dark"] .featured-hero-box {
+[data-theme="dark"] .block.welcome {
   background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
   border-color: #334155;
 }
 
-.featured-hero-left {
+.welcome-wrapper {
+  max-width: 1040px;
+  margin: 0 auto;
+}
+
+.welcome h1 {
+  font-family: var(--font-heading);
+  font-size: 2.8rem;
+  color: var(--text-main);
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+.welcome .subTitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 28px;
+}
+
+/* Skillba-style Checklist Content Block */
+.contentBlock {
+  display: inline-grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px 30px;
+  text-align: left;
+  margin: 10px auto 32px;
+  max-width: 860px;
+  width: 100%;
+}
+.content {
+  position: relative;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  padding-left: 28px;
+  line-height: 1.5;
+}
+.content::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: -1px;
+  color: var(--accent-green-check);
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.hero-actions-row {
   display: flex;
   align-items: center;
-  gap: 28px;
-  flex: 1;
-}
-.featured-book-img-wrap {
-  width: 160px;
-  height: 200px;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
-  overflow: hidden;
-  flex-shrink: 0;
-  background: #ffffff;
-  border: 3px solid #ffffff;
-  position: relative;
-  transition: transform var(--transition-normal);
-}
-.featured-book-img-wrap:hover {
-  transform: translateY(-4px) scale(1.02);
-}
-.featured-book-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.featured-hero-content {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-}
-.featured-tag {
-  background: rgba(238, 93, 56, 0.12);
-  color: var(--accent-coral);
-  font-size: 0.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  padding: 4px 12px;
-  border-radius: var(--radius-pill);
-}
-.featured-title {
-  font-size: 0.95rem;
-  color: #475569;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-[data-theme="dark"] .featured-title {
-  color: #94a3b8;
-}
-.featured-main-heading {
-  font-family: var(--font-heading);
-  font-size: 2.2rem;
-  color: #0f172a;
-  letter-spacing: 0.5px;
-}
-[data-theme="dark"] .featured-main-heading {
-  color: #ffffff;
-}
-.featured-subtitle {
-  font-size: 1.05rem;
-  color: #475569;
-  margin-bottom: 8px;
-}
-[data-theme="dark"] .featured-subtitle {
-  color: #cbd5e1;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 10px;
 }
 
 .btn-coral-cta {
   background: linear-gradient(135deg, var(--accent-coral), var(--accent-orange));
   color: #ffffff;
-  font-weight: 600;
-  padding: 12px 28px;
+  font-weight: 700;
+  padding: 13px 30px;
   border-radius: var(--radius-md);
   display: inline-flex;
   align-items: center;
@@ -461,15 +450,156 @@ a {
   transition: var(--transition-fast);
   border: none;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.05rem;
 }
 .btn-coral-cta:hover {
   background: linear-gradient(135deg, var(--accent-coral-hover), #ea580c);
   transform: translateY(-2px);
   box-shadow: 0 10px 28px rgba(238, 93, 56, 0.35);
+  color: #ffffff;
 }
 
-/* Class Navigation Pills Bar */
+.btn-secondary-outline {
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-weight: 700;
+  padding: 13px 26px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-light);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+  font-size: 1.05rem;
+}
+.btn-secondary-outline:hover {
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Skillba Signature Curved / Wave Dividers
+   ========================================================================== */
+.divider {
+  position: relative;
+  left: 0;
+  width: 100%;
+  height: 48px;
+  overflow: hidden;
+  z-index: 2;
+}
+.divider .outer {
+  position: absolute;
+  left: -5vw;
+  top: 0;
+  width: 110vw;
+  height: 100%;
+}
+.divider .inner {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(-75vw + 10vw + 3.75vw);
+  width: 200vw;
+  height: 75vw;
+  border-bottom: 10vw solid var(--bg-card);
+  border-radius: 50%;
+}
+[data-theme="dark"] .divider .inner {
+  border-color: var(--bg-card);
+}
+.divider.right {
+  transform: rotate(-1.5deg);
+  margin-top: -24px;
+}
+.divider.left {
+  transform: rotate(1.5deg);
+  margin-top: -24px;
+}
+
+/* ==========================================================================
+   Skillba-Style Testimonials Row
+   ========================================================================== */
+.block.testimonials {
+  background: var(--bg-card);
+  padding: 40px 20px 50px;
+  text-align: center;
+}
+.testimonials-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+}
+.testimonial-card {
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  text-align: left;
+  transition: var(--transition-fast);
+  position: relative;
+  box-shadow: var(--shadow-sm);
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-blue);
+}
+.testimonial-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.testimonial-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent-coral);
+  box-shadow: var(--shadow-sm);
+}
+.testimonial-name-wrap {
+  display: flex;
+  flex-direction: column;
+}
+.testimonial-name {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--text-main);
+}
+.testimonial-role {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.testimonial-quote {
+  font-size: 0.95rem;
+  color: var(--text-main);
+  line-height: 1.5;
+  font-style: italic;
+  position: relative;
+}
+.testimonial-quote::before {
+  content: "“";
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--accent-coral);
+  opacity: 0.6;
+  margin-right: 4px;
+}
+.testimonial-stars {
+  color: #f59e0b;
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+/* ==========================================================================
+   Class Selector Pills Bar
+   ========================================================================== */
 .class-tabs-container {
   background: var(--bg-card);
   border-radius: var(--radius-lg);
@@ -508,7 +638,15 @@ a {
   box-shadow: 0 4px 12px rgba(59, 108, 143, 0.25);
 }
 
-/* 3-Column Content Layout */
+/* ==========================================================================
+   Main Wrapper & Content Grid
+   ========================================================================== */
+.main-wrapper {
+  max-width: 1240px;
+  margin: 30px auto 0;
+  padding: 0 20px;
+}
+
 .content-grid-layout {
   display: grid;
   grid-template-columns: 280px 1fr 300px;
@@ -516,8 +654,8 @@ a {
   align-items: start;
 }
 
-/* Left Sidebar: School Guides */
-.left-sidebar {
+/* Left & Right Sidebars */
+.left-sidebar, .right-sidebar {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -548,7 +686,6 @@ a {
   flex-direction: column;
   gap: 12px;
 }
-
 .guide-item-card {
   display: flex;
   align-items: center;
@@ -565,7 +702,6 @@ a {
   border-color: var(--accent-blue);
   box-shadow: var(--shadow-md);
 }
-
 .guide-icon-box {
   width: 44px;
   height: 44px;
@@ -577,7 +713,6 @@ a {
   font-size: 1.2rem;
   flex-shrink: 0;
 }
-
 .guide-item-info {
   display: flex;
   flex-direction: column;
@@ -607,6 +742,69 @@ a {
   align-self: flex-start;
 }
 
+/* Sidebar Search */
+.sidebar-search-box {
+  width: 100%;
+  position: relative;
+}
+.sidebar-search-input {
+  width: 100%;
+  padding: 10px 14px 10px 38px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-light);
+  background: var(--bg-card);
+  color: var(--text-main);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition-fast);
+}
+.sidebar-search-input:focus {
+  border-color: var(--accent-coral);
+  box-shadow: 0 0 0 3px rgba(238, 93, 56, 0.15);
+}
+
+/* Popular Posts */
+.popular-posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.popular-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  transition: var(--transition-fast);
+  cursor: pointer;
+}
+.popular-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+.popular-num {
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--accent-coral);
+  width: 24px;
+  text-align: center;
+}
+.popular-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.popular-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-main);
+  line-height: 1.3;
+}
+.popular-title:hover {
+  color: var(--accent-coral);
+}
+
 /* Main Body Content */
 .main-content-body {
   display: flex;
@@ -617,7 +815,7 @@ a {
 .section-card {
   background: var(--bg-card);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 26px;
   border: 1px solid var(--border-light);
   box-shadow: var(--shadow-sm);
 }
@@ -649,7 +847,7 @@ a {
   background: var(--bg-card-subtle);
   border: 1px solid var(--border-light);
   border-radius: var(--radius-lg);
-  padding: 24px;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -697,7 +895,6 @@ a {
   flex-direction: column;
   gap: 12px;
 }
-
 .bullet-link-item {
   display: flex;
   align-items: center;
@@ -717,21 +914,18 @@ a {
 [data-theme="dark"] .bullet-link-item:hover {
   background: #334155;
 }
-
 .bullet-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
   flex-shrink: 0;
 }
-
 .bullet-link-text {
   font-size: 1.05rem;
   font-weight: 600;
   color: var(--text-main);
   flex: 1;
 }
-
 .bullet-badge {
   font-size: 0.75rem;
   font-weight: 700;
@@ -740,19 +934,17 @@ a {
   background: rgba(238, 93, 56, 0.1);
   color: var(--accent-coral);
 }
-
 .highlighted-exam-row {
   border-left: 4px solid var(--accent-coral);
   background: linear-gradient(90deg, rgba(238, 93, 56, 0.04), transparent);
 }
 
-/* Student Subject Cards Grid (Vibrant Colors) */
+/* Student Subject Cards Grid */
 .subjects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 16px;
 }
-
 .subject-card {
   border-radius: var(--radius-md);
   padding: 18px;
@@ -772,7 +964,6 @@ a {
   border-color: var(--accent-coral);
   background: var(--bg-card);
 }
-
 .subject-card-top {
   display: flex;
   align-items: center;
@@ -807,7 +998,7 @@ a {
   line-height: 1.4;
 }
 
-/* Exam Paper Year Selector Pills */
+/* Year Pills */
 .year-pills-bar {
   display: flex;
   align-items: center;
@@ -834,111 +1025,290 @@ a {
   border-color: var(--accent-coral);
 }
 
-/* Right Sidebar: Search & Popular Posts */
-.right-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.sidebar-search-box {
-  width: 100%;
-  position: relative;
-}
-.sidebar-search-input {
-  width: 100%;
-  padding: 10px 14px 10px 38px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-light);
+/* ==========================================================================
+   Skillba 5-Point Trust & Benefits Grid ("Why Choose Us")
+   ========================================================================== */
+.block.benefits-section {
   background: var(--bg-card);
-  color: var(--text-main);
-  font-size: 0.95rem;
-  outline: none;
-  transition: var(--transition-fast);
-}
-.sidebar-search-input:focus {
-  border-color: var(--accent-coral);
-  box-shadow: 0 0 0 3px rgba(238, 93, 56, 0.15);
-}
-
-.popular-posts-list {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-.popular-item {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  padding-bottom: 12px;
-  border-bottom: 1px solid var(--border-subtle);
-  transition: var(--transition-fast);
-  cursor: pointer;
-}
-.popular-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
-}
-.popular-num {
-  font-family: var(--font-heading);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--accent-coral);
-  width: 24px;
+  padding: 60px 20px;
   text-align: center;
-}
-.popular-info {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-.popular-title {
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: var(--text-main);
-  line-height: 1.3;
-}
-.popular-title:hover {
-  color: var(--accent-coral);
-}
-
-/* Tamil Footer Banner */
-.tamil-footer-banner {
-  margin-top: 48px;
-  background: #ffffff;
   border-top: 1px solid var(--border-light);
   border-bottom: 1px solid var(--border-light);
-  padding: 24px 20px;
-  text-align: center;
-  box-shadow: var(--shadow-sm);
 }
-[data-theme="dark"] .tamil-footer-banner {
-  background: #1e293b;
+.benefits-section h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+.benefits-section .sub-intro {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  margin-bottom: 40px;
+}
+.benefits-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+.benefit {
+  flex: 1 1 220px;
+  max-width: 320px;
+  background: var(--bg-card-subtle);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 24px 20px;
+  text-align: left;
+  transition: var(--transition-fast);
+}
+.benefit:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--accent-coral);
+}
+.benefit i {
+  font-size: 2.4rem;
+  color: var(--accent-coral);
+  margin-bottom: 16px;
+  display: inline-block;
+}
+.benefit .title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+.benefit p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
-.tamil-banner-text {
-  font-size: 1.4rem;
-  font-weight: 800;
+/* ==========================================================================
+   Skillba-Style Email/WhatsApp Alert Subscription Box
+   ========================================================================== */
+.block.try {
+  background: linear-gradient(135deg, #3b6c8f 0%, #1e3a52 100%);
+  color: #ffffff;
+  padding: 50px 20px;
+  text-align: center;
+}
+.try-wrapper {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.try-title {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+.pros {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 16px 0 24px;
+}
+.pro {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 0.85rem;
+  font-weight: 600;
+  backdrop-filter: blur(5px);
+}
+.getEmail-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 520px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.getEmail-input {
+  flex: 1 1 260px;
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: #ffffff;
+  color: #1e293b;
+  font-size: 1rem;
+  outline: none;
+}
+.getEmail-input:focus {
+  box-shadow: 0 0 0 3px rgba(238, 93, 56, 0.4);
+}
+
+/* ==========================================================================
+   Skillba 2-Column Accordion FAQ
+   ========================================================================== */
+.block.faqs {
+  background: var(--bg-main);
+  padding: 60px 20px;
+  text-align: center;
+}
+.faqs-wrapper {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+.faqs h2 {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  margin-bottom: 30px;
+}
+.faq-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 16px;
+  text-align: left;
+}
+.faq {
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-fast);
+}
+.faq .question {
+  position: relative;
+  padding: 16px 16px 16px 36px;
+  font-weight: 700;
+  font-size: 1rem;
   color: var(--text-main);
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+  user-select: none;
+}
+.faq .question::before {
+  content: "►";
+  position: absolute;
+  left: 14px;
+  top: 17px;
+  font-size: 0.75rem;
+  color: var(--accent-coral);
+  transition: transform 0.25s;
+}
+.faq .question:hover {
+  background-color: rgba(238, 93, 56, 0.08);
+  color: var(--accent-coral);
+}
+.faq .question.open {
+  background-color: var(--accent-coral);
+  color: #ffffff;
+}
+.faq .question.open::before {
+  transform: rotate(90deg);
+  color: #ffffff;
+}
+.faq .answer {
+  display: none;
+  padding: 16px 20px;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-card-subtle);
+}
+
+/* ==========================================================================
+   Skillba Multi-Column Quick Navigation Footer
+   ========================================================================== */
+.block.quickNav {
+  background: #1e293b;
+  color: #cbd5e1;
+  padding: 50px 20px 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+.quickNav-wrapper {
+  max-width: 1240px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 36px;
+}
+.navCol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.navCol .navText {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+.navCol a {
+  color: #94a3b8;
+  font-size: 0.92rem;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+}
+.navCol a:hover {
+  color: #ffffff;
+  transform: translateX(3px);
+}
+.quickNav-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 6px;
+}
+.quickNav-socials a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+.quickNav-socials a:hover {
+  background: var(--accent-coral);
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+/* Signature Tamil Footer Banner */
+.tamil-footer-banner {
+  background: #0f172a;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 24px 20px;
+  text-align: center;
+}
+.tamil-banner-text {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #f8fafc;
   letter-spacing: 0.5px;
 }
 .tamil-subtext {
-  font-size: 0.95rem;
-  color: var(--text-muted);
+  font-size: 0.9rem;
+  color: #94a3b8;
   margin-top: 4px;
 }
 
-/* Footer Section */
+/* Site Footer */
 .site-footer {
-  max-width: 1240px;
-  margin: 30px auto 0;
-  padding: 0 20px;
+  background: #0b1120;
+  padding: 16px 20px;
   text-align: center;
-  color: var(--text-muted);
+  color: #64748b;
   font-size: 0.85rem;
 }
 
-/* Interactive Floating TOC Widget */
+/* ==========================================================================
+   Interactive Modals & Floating TOC
+   ========================================================================== */
 .floating-toc-widget {
   position: fixed;
   bottom: 24px;
@@ -1013,7 +1383,6 @@ a {
 .modal-backdrop.show {
   display: flex;
 }
-
 .pdf-modal-box {
   background: var(--bg-card);
   border-radius: var(--radius-xl);
@@ -1032,7 +1401,6 @@ a {
   from { opacity: 0; transform: scale(0.9); }
   to { opacity: 1; transform: scale(1); }
 }
-
 .modal-close-btn {
   position: absolute;
   top: 20px;
@@ -1054,7 +1422,6 @@ a {
   background: #ef4444;
   color: #fff;
 }
-
 .modal-header-icon {
   width: 60px;
   height: 60px;
@@ -1066,14 +1433,12 @@ a {
   justify-content: center;
   font-size: 1.8rem;
 }
-
 .modal-actions-bar {
   display: flex;
   align-items: center;
   gap: 12px;
   margin-top: 10px;
 }
-
 .btn-download-primary {
   flex: 1;
   background: linear-gradient(135deg, var(--header-bg-start), var(--header-bg-end));
@@ -1094,7 +1459,6 @@ a {
   opacity: 0.95;
   transform: translateY(-2px);
 }
-
 .btn-bookmark-secondary {
   padding: 12px 18px;
   border-radius: var(--radius-md);
@@ -1147,15 +1511,16 @@ a {
   .left-sidebar {
     grid-column: span 1;
   }
-  .featured-hero-box {
-    flex-direction: column;
-    text-align: center;
-    padding: 24px;
-  }
-  .featured-hero-left {
-    flex-direction: column;
+  .welcome h1 {
+    font-size: 2.1rem;
   }
   .nav-menu-links {
     display: none;
+  }
+  .getEmail-form {
+    flex-direction: column;
+  }
+  .getEmail-input, .getEmail-form .btn-coral-cta {
+    width: 100%;
   }
 }

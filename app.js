@@ -41,6 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const profileModalCloseBtn = document.getElementById('profileModalCloseBtn');
   const profileBookmarksList = document.getElementById('profileBookmarksList');
 
+  // Skillba Lead Alert Form
+  const alertSubscribeForm = document.getElementById('alertSubscribeForm');
+  const alertContactInput = document.getElementById('alertContactInput');
+
   // Initialize UI
   initTheme();
   highlightActiveNavigationLink();
@@ -53,6 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
   renderPopularPosts();
   renderTOC();
   setupSmartTOCScroll();
+  initFaqAccordions();
+  initAlertSubscription();
 
   // Theme Handling
   function initTheme() {
@@ -86,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     document.querySelectorAll('.nav-menu-links .nav-link').forEach(link => {
       const linkHref = link.getAttribute('href');
-      if (linkHref === pageName || (pageName === "index.html" && linkHref === "#") || (pageName === "index.html" && linkHref === "index.html")) {
+      if (linkHref === pageName || (pageName === "index.html" && (linkHref === "#" || linkHref === "index.html"))) {
         link.classList.add('active');
       } else {
         link.classList.remove('active');
@@ -331,7 +337,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const path = window.location.pathname;
       const pageName = path.split("/").pop() || "index.html";
 
-      // 1. Target: textbooks (books.html)
       if (targetId === 'sec-books') {
         if (pageName !== "books.html") {
           window.location.href = "books.html";
@@ -339,7 +344,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
       
-      // 2. Target: Teachers Corner (teachers-corner.html)
       if (targetId === 'sec-lesson-plans') {
         if (pageName !== "teachers-corner.html") {
           window.location.href = "teachers-corner.html";
@@ -347,7 +351,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // 3. Target: Subject study materials (study-materials.html)
       if (targetId === 'sec-study-materials') {
         if (pageName !== "study-materials.html") {
           window.location.href = "study-materials.html";
@@ -355,17 +358,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // 4. Target: Exams archives (exams.html)
       if (targetId === 'sec-quarterly' || targetId === 'sec-halfyearly' || targetId === 'sec-public') {
         if (pageName !== "exams.html") {
           let category = "quarterly";
           if (targetId === "sec-halfyearly") category = "halfYearly";
           if (targetId === "sec-public") category = "publicExam";
-          // Redirect with hash and query param to specify category
           window.location.href = `exams.html?cat=${category}`;
           return;
         } else {
-          // We are already on exams.html
           let category = "quarterly";
           if (targetId === "sec-halfyearly") category = "halfYearly";
           if (targetId === "sec-public") category = "publicExam";
@@ -374,7 +374,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // 5. Target: Competitive Exams (competitive-exams.html)
       if (targetId === 'sec-exams') {
         if (pageName !== "competitive-exams.html") {
           window.location.href = "competitive-exams.html";
@@ -382,7 +381,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       }
 
-      // If we are on the correct page, do scroll
       const targetElement = document.getElementById(targetId);
       if (targetElement) {
         e.preventDefault();
@@ -399,7 +397,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // Check query parameters on load for exams.html
     const path = window.location.pathname;
     const pageName = path.split("/").pop() || "index.html";
     if (pageName === "exams.html") {
@@ -409,7 +406,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const tab = document.querySelector(`[data-exam-cat="${cat}"]`);
         if (tab) {
           tab.click();
-          // Remove query params from address bar without page reload
           window.history.replaceState({}, document.title, window.location.pathname);
         }
       }
@@ -433,6 +429,51 @@ document.addEventListener('DOMContentLoaded', () => {
   window.closeTOC = function() {
     if (tocPopover) tocPopover.classList.remove('show');
   };
+
+  // Skillba-style Interactive FAQ Accordions
+  function initFaqAccordions() {
+    const questions = document.querySelectorAll('.faq .question');
+    questions.forEach(q => {
+      q.addEventListener('click', () => {
+        const isOpen = q.classList.contains('open');
+        const answer = q.nextElementSibling;
+        
+        // Close other FAQs in same column
+        questions.forEach(otherQ => {
+          if (otherQ !== q) {
+            otherQ.classList.remove('open');
+            if (otherQ.nextElementSibling) {
+              otherQ.nextElementSibling.style.display = 'none';
+            }
+          }
+        });
+
+        // Toggle current FAQ
+        if (isOpen) {
+          q.classList.remove('open');
+          if (answer) answer.style.display = 'none';
+        } else {
+          q.classList.add('open');
+          if (answer) answer.style.display = 'block';
+        }
+      });
+    });
+  }
+
+  // Skillba-style Exam Alert Subscription
+  function initAlertSubscription() {
+    if (!alertSubscribeForm) return;
+    alertSubscribeForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const val = alertContactInput ? alertContactInput.value.trim() : '';
+      if (!val) {
+        showToast('Please enter your WhatsApp Number or Email ID');
+        return;
+      }
+      showToast('🎉 Subscribed successfully! You will receive instant exam alerts.');
+      if (alertContactInput) alertContactInput.value = '';
+    });
+  }
 
   // Synchronized Dual Search Bars Functionality
   function performLiveSearch(query) {
@@ -539,7 +580,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `).join('');
 
-    // Attach click listeners to remove buttons
     profileBookmarksList.querySelectorAll('.remove-bookmark-btn').forEach(btn => {
       btn.addEventListener('click', (e) => {
         const url = e.currentTarget.getAttribute('data-url');
@@ -563,7 +603,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     localStorage.setItem('padasalai_bookmarks', JSON.stringify(savedBookmarks));
 
-    // Update main PDF modal button state if open
     if (pdfModalBackdrop && pdfModalBackdrop.classList.contains('show') && modalLink.href === url) {
       const isSaved = savedBookmarks.some(b => b.url === url);
       modalBookmarkBtn.innerHTML = isSaved 
