@@ -1,4 +1,3 @@
-// Padasalai.Net Educational Database
 const PADASALAI_DATA = {
   siteMeta: {
     title: "Padasalai.Net - No.1 Educational Website",
@@ -81,146 +80,174 @@ const PADASALAI_DATA = {
     { id: "primary", name: "1st - 5th Standard", label: "Primary School", count: "120+ Materials" }
   ],
 
-  booksAndSyllabus: {
-    "11th": {
-      booksUrl: "https://www.padasalai.net/2026/05/Tamilnadu-Class-11-Text-Books-PDF-Download-2026-2027.html",
-      syllabusUrl: "https://www.padasalai.net/2024/05/11th-Standard-Syllabus-2024-2025-All-Subjects-PDF-Download.html",
-      practicalUrl: "https://www.padasalai.net/2019/01/11th-practical-books-study-materials-question-paper-answer-keys-download.html"
+  subjects11th: [
+    {
+      name: "Tamil",
+      nameTa: "தமிழ்",
+      icon: "fa-language",
+      color: "gradient-rose",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "Iyal-wise Notes, Grammar, Guide & Model Q&A"
     },
-    "12th": {
-      booksUrl: "https://www.padasalai.net/2026/05/Tamilnadu-Class-12-Text-Books-PDF-Download-2026-2027.html",
-      syllabusUrl: "https://www.padasalai.net/2024/05/12th-Standard-Syllabus-2024-2025-All-Subjects-PDF-Download.html",
-      practicalUrl: "https://www.padasalai.net/2019/01/12th-practical-books-study-materials-question-paper-answer-keys-download.html"
+    {
+      name: "English",
+      nameTa: "ஆங்கிலம்",
+      icon: "fa-font",
+      color: "gradient-blue",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "Prose, Poem, Supplementary, Grammar & Vocabulary"
     },
-    "10th": {
-      booksUrl: "https://www.padasalai.net/2026/05/Tamilnadu-Class-10-Text-Books-PDF-Download-2026-2027.html",
-      syllabusUrl: "https://www.padasalai.net/2024/05/10th-Standard-Syllabus-2024-2025-All-Subjects-PDF-Download.html",
-      practicalUrl: "https://www.padasalai.net/2019/01/10th-practical-books-study-materials-question-paper-answer-keys-download.html"
+    {
+      name: "Mathematics",
+      nameTa: "கணிதம்",
+      icon: "fa-calculator",
+      color: "gradient-indigo",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "Volume 1 & 2 Worked Solutions & Important Formulae"
     },
-    "default": {
-      booksUrl: "https://www.padasalai.net/2026/05/Tamilnadu-Schools-Notes-Guides-All-Subjects-PDF-Download..html",
-      syllabusUrl: "https://www.padasalai.net/2026/05/Tamilnadu-Schools-Notes-Guides-All-Subjects-PDF-Download..html",
-      practicalUrl: "https://www.padasalai.net/2026/05/Tamilnadu-Schools-Notes-Guides-All-Subjects-PDF-Download..html"
+    {
+      name: "Physics",
+      nameTa: "இயற்பியல்",
+      icon: "fa-atom",
+      color: "gradient-cyan",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "Derivations, Numerical Problems & Practical Guides"
+    },
+    {
+      name: "Chemistry",
+      nameTa: "வேதியியல்",
+      icon: "fa-flask",
+      color: "gradient-teal",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "Organic, Inorganic, Physical Chem Notes & Equations"
+    },
+    {
+      name: "Biology",
+      nameTa: "உயிரியல்",
+      icon: "fa-leaf",
+      color: "gradient-emerald",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "Botany + Zoology Combined Question Bank & Diagrams"
+    },
+    {
+      name: "Botany",
+      nameTa: "தாவரவியல்",
+      icon: "fa-seedling",
+      color: "gradient-green",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "Plant Anatomy, Physiology & Bio-Botany Notes"
+    },
+    {
+      name: "Zoology",
+      nameTa: "விலங்கியல்",
+      icon: "fa-dna",
+      color: "gradient-orange",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "Human Physiology, Animal Kingdom & Bio-Zoology"
+    },
+    {
+      name: "Computer Science",
+      nameTa: "கணினி அறிவியல்",
+      icon: "fa-laptop-code",
+      color: "gradient-violet",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "C++, Python, Data Structures & Practical Programs"
+    },
+    {
+      name: "Computer Applications",
+      nameTa: "கணினி பயன்பாடுகள்",
+      icon: "fa-desktop",
+      color: "gradient-purple",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "HTML, CSS, PageMaker, PHP & MySQL Notes"
+    },
+    {
+      name: "Business Maths",
+      nameTa: "வணிக கணிதம்",
+      icon: "fa-chart-line",
+      color: "gradient-pink",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "Statistics, Matrices, Financial Maths & Calculus"
+    },
+    {
+      name: "Commerce",
+      nameTa: "வணிகவியல்",
+      icon: "fa-briefcase",
+      color: "gradient-amber",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "Business Organisation, Banking & Trade Notes"
+    },
+    {
+      name: "Accountancy",
+      nameTa: "கணக்குப்பதிவியல்",
+      icon: "fa-file-invoice-dollar",
+      color: "gradient-blue",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "Ledgers, Journal Entries, Final Accounts Solutions"
+    },
+    {
+      name: "Economics",
+      nameTa: "பொருளியல்",
+      icon: "fa-coins",
+      color: "gradient-yellow",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "Micro & Macro Economics, Indian Economy Notes"
+    },
+    {
+      name: "History",
+      nameTa: "வரலாறு",
+      icon: "fa-landmark",
+      color: "gradient-brown",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "Ancient, Medieval & Modern Indian History Guides"
+    },
+    {
+      name: "Computer Technology",
+      nameTa: "கணினி தொழில்நுட்பம்",
+      icon: "fa-microchip",
+      color: "gradient-slate",
+      url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html",
+      desc: "Vocational Stream Hardware & Tech Study Material"
     }
-  },
-
-  subjects: {
-    "11th": [
-      { name: "Tamil", nameTa: "தமிழ்", icon: "fa-language", color: "gradient-rose", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "Iyal-wise Notes, Grammar, Guide & Model Q&A" },
-      { name: "English", nameTa: "ஆங்கிலம்", icon: "fa-font", color: "gradient-blue", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "Prose, Poem, Supplementary, Grammar & Vocabulary" },
-      { name: "Mathematics", nameTa: "கணிதம்", icon: "fa-calculator", color: "gradient-indigo", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "Volume 1 & 2 Worked Solutions & Important Formulae" },
-      { name: "Physics", nameTa: "இயற்பியல்", icon: "fa-atom", color: "gradient-cyan", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "Derivations, Numerical Problems & Practical Guides" },
-      { name: "Chemistry", nameTa: "வேதியியல்", icon: "fa-flask", color: "gradient-teal", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "Organic, Inorganic, Physical Chem Notes & Equations" },
-      { name: "Biology", nameTa: "உயிரியல்", icon: "fa-leaf", color: "gradient-emerald", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "Botany + Zoology Combined Question Bank & Diagrams" },
-      { name: "Botany", nameTa: "தாவரவியல்", icon: "fa-seedling", color: "gradient-green", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "Plant Anatomy, Physiology & Bio-Botany Notes" },
-      { name: "Zoology", nameTa: "விலங்கியல்", icon: "fa-dna", color: "gradient-orange", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "Human Physiology, Animal Kingdom & Bio-Zoology" },
-      { name: "Computer Science", nameTa: "கணினி அறிவியல்", icon: "fa-laptop-code", color: "gradient-violet", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "C++, Python, Data Structures & Practical Programs" },
-      { name: "Computer Applications", nameTa: "கணினி பயன்பாடுகள்", icon: "fa-desktop", color: "gradient-purple", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "HTML, CSS, PageMaker, PHP & MySQL Notes" },
-      { name: "Business Maths", nameTa: "வணிக கணிதம்", icon: "fa-chart-line", color: "gradient-pink", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "Statistics, Matrices, Financial Maths & Calculus" },
-      { name: "Commerce", nameTa: "வணிகவியல்", icon: "fa-briefcase", color: "gradient-amber", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "Business Organisation, Banking & Trade Notes" },
-      { name: "Accountancy", nameTa: "கணக்குப்பதிவியல்", icon: "fa-file-invoice-dollar", color: "gradient-blue", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "Ledgers, Journal Entries, Final Accounts Solutions" },
-      { name: "Economics", nameTa: "பொருளியல்", icon: "fa-coins", color: "gradient-yellow", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "Micro & Macro Economics, Indian Economy Notes" },
-      { name: "History", nameTa: "வரலாறு", icon: "fa-landmark", color: "gradient-brown", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "Ancient, Medieval & Modern Indian History Guides" },
-      { name: "Computer Technology", nameTa: "கணினி தொழில்நுட்பம்", icon: "fa-microchip", color: "gradient-slate", url: "https://www.padasalai.net/2025/05/plus-one-Class-11th-standard-study-materials-english-medium-tamil-medium-pdf-download.html", desc: "Vocational Stream Hardware & Tech Study Material" }
-    ],
-    "12th": [
-      { name: "Tamil", nameTa: "தமிழ்", icon: "fa-language", color: "gradient-rose", url: "https://www.padasalai.net/2025/05/12th-study-materials.html", desc: "Plus Two Iyal-wise Full Guides, Grammar & Prose Q&A" },
-      { name: "English", nameTa: "ஆங்கிலம்", icon: "fa-font", color: "gradient-blue", url: "https://www.padasalai.net/2025/05/12th-study-materials.html", desc: "Paragraphs, Synonyms & Antonyms, Poem Exercises, Guide" },
-      { name: "Mathematics", nameTa: "கணிதம்", icon: "fa-calculator", color: "gradient-indigo", url: "https://www.padasalai.net/2025/05/12th-study-materials.html", desc: "Volume 1 & 2 Chapter Questions, Full Solutions & Keys" },
-      { name: "Physics", nameTa: "இயற்பியல்", icon: "fa-atom", color: "gradient-cyan", url: "https://www.padasalai.net/2025/05/12th-study-materials.html", desc: "Electrostatics, Optics, Magnetism Problems & Diagrams" },
-      { name: "Chemistry", nameTa: "வேதியியல்", icon: "fa-flask", color: "gradient-teal", url: "https://www.padasalai.net/2025/05/12th-study-materials.html", desc: "Chemical Kinetics, Metallurgy, Organic Transformations & Tips" },
-      { name: "Biology", nameTa: "உயிரியல்", icon: "fa-leaf", color: "gradient-emerald", url: "https://www.padasalai.net/2025/05/12th-study-materials.html", desc: "Full Biology Notes, Practice Tests & Model Board Papers" },
-      { name: "Botany", nameTa: "தாவரவியல்", icon: "fa-seedling", color: "gradient-green", url: "https://www.padasalai.net/2025/05/12th-study-materials.html", desc: "Bio-Botany Genetics & Biotechnology Detailed Guides" },
-      { name: "Zoology", nameTa: "விலங்கியல்", icon: "fa-dna", color: "gradient-orange", url: "https://www.padasalai.net/2025/05/12th-study-materials.html", desc: "Human Reproduction, Evolution & Health Notes" },
-      { name: "Computer Science", nameTa: "கணினி அறிவியல்", icon: "fa-laptop-code", color: "gradient-violet", url: "https://www.padasalai.net/2025/05/12th-study-materials.html", desc: "Python Programming, SQL Database & Practical Programs" },
-      { name: "Commerce", nameTa: "வணிகவியல்", icon: "fa-briefcase", color: "gradient-amber", url: "https://www.padasalai.net/2025/05/12th-study-materials.html", desc: "Management Principles, Financial Markets & Consumerism" },
-      { name: "Accountancy", nameTa: "கணக்குப்பதிவியல்", icon: "fa-file-invoice-dollar", color: "gradient-blue", url: "https://www.padasalai.net/2025/05/12th-study-materials.html", desc: "Partnership Accounts, Ratio Analysis, Tally & Solutions" },
-      { name: "Economics", nameTa: "பொருளியல்", icon: "fa-coins", color: "gradient-yellow", url: "https://www.padasalai.net/2025/05/12th-study-materials.html", desc: "National Income, Monetary Economics, Fiscal Economics" }
-    ],
-    "10th": [
-      { name: "Tamil", nameTa: "தமிழ்", icon: "fa-language", color: "gradient-rose", url: "https://www.padasalai.net/2025/05/10th-study-materials.html", desc: "SSLC Tamil Iyal Notes, Grammar & Model Q&A" },
-      { name: "English", nameTa: "ஆங்கிலம்", icon: "fa-font", color: "gradient-blue", url: "https://www.padasalai.net/2025/05/10th-study-materials.html", desc: "Grammar Rules, Paragraphs, Vocabulary & Model Papers" },
-      { name: "Mathematics", nameTa: "கணிதம்", icon: "fa-calculator", color: "gradient-indigo", url: "https://www.padasalai.net/2025/05/10th-study-materials.html", desc: "Geometry, Algebra, Trigonometry & Matrices Solutions" },
-      { name: "Science", nameTa: "அறிவியல்", icon: "fa-flask", color: "gradient-teal", url: "https://www.padasalai.net/2025/05/10th-study-materials.html", desc: "Physics, Chemistry & Biology Integrated Notes & Solutions" },
-      { name: "Social Science", nameTa: "சமூக அறிவியல்", icon: "fa-globe-americas", color: "gradient-brown", url: "https://www.padasalai.net/2025/05/10th-study-materials.html", desc: "History, Geography, Civics & Economics Maps & Timelines" }
-    ],
-    "default": [
-      { name: "All Subject Materials", nameTa: "அனைத்து பாடங்கள்", icon: "fa-book-open", color: "gradient-slate", url: "https://www.padasalai.net/2020/07/12th-11th-10th-9th-1st-standard-all-standards-latest-study-materials-english-medium-tamil-medium-download.html", desc: "Full study guides, textbooks and model questions." }
-    ]
-  },
+  ],
 
   examArchives: {
-    "11th": {
-      quarterly: [
-        { year: "2026", title: "2026 - 11th Quarterly Exam Question Papers & Keys", url: "https://www.padasalai.net/2026/05/11th-quarterly-exam-question-papers-2026-answer-keys-time-table-download-plus-one.html", badge: "Latest 2026", highlight: true },
-        { year: "2025", title: "2025 - 11th Quarterly Exam Original Papers", url: "https://www.padasalai.net/2025/06/11th-quarterly-exam-question-papers-2025-answer-keys-time-table-download-plus-one.html", badge: "Official Keys" },
-        { year: "2024", title: "2024 - 11th Quarterly Exam Question Papers", url: "https://www.padasalai.net/2024/07/11th-quarterly-exam-question-papers-2024-answer-keys-time-table-download-plus-one.html", badge: "All Districts" },
-        { year: "2023", title: "2023 - 11th Quarterly Exam Question Papers", url: "https://www.padasalai.net/2023/07/11th-quarterly-exam-2023-question-papers-answer-keys-time-table-download-plus-one.html", badge: "Archive" },
-        { year: "2022", title: "2022 - 11th Quarterly Exam Question Papers", url: "https://www.padasalai.net/2022/08/plus-one-11th-quarterly-exam-question-paper-answer-keys-pdf-download-2022-2023.html", badge: "Archive" },
-        { year: "2021", title: "2021 - 11th Quarterly Exam Question Papers", url: "https://www.padasalai.net/2019/08/Plus-One-11th-quarterly-exam-key-question-papers-answer-keys-download-2019-2020.html", badge: "Archive" },
-        { year: "2019", title: "2019 - 11th Quarterly Exam Question Papers", url: "https://www.padasalai.net/2019/09/11th-quarterly-exam-question-papers-and.html", badge: "Archive" },
-        { year: "Model", title: "11th Quarterly Exam Model Question Papers", url: "https://www.padasalai.net/2019/09/11th-quarterly-exam-question-papers-and.html", badge: "Practice Set" }
-      ],
-      halfYearly: [
-        { year: "2026", title: "2026 - 11th Half Yearly Exam Question Papers & Keys", url: "https://www.padasalai.net/2026/05/11th-standrd-Half-Yearly-Question-Papers-2026-2027-Answer-Keys-Download-plus-one-class-Time-Table.html", badge: "New 2026", highlight: true },
-        { year: "2025", title: "2025 - 11th Half Yearly Exam Question Papers", url: "https://www.padasalai.net/2025/07/11th-Half-Yearly-Question-Papers-2025-Answer-Keys-Download-plus-one-class-Time-Table-2026.html", badge: "Answer Keys" },
-        { year: "2024", title: "2024 - 11th Half Yearly Exam Question Papers", url: "https://www.padasalai.net/2024/08/Plus-One-11th-Half-Yearly-Exam-Question-Papers-2024-2025-Answer-Keys-Time-Table-PDF-Download.html", badge: "PDF Download" },
-        { year: "2023", title: "2023 - 11th Half Yearly Exam Question Papers", url: "https://www.padasalai.net/2023/10/Plus-One-11th-Half-Yearly-Exam-2023-2024-Question-Papers-Answer-Keys-Time-Table-PDF-Download.html", badge: "Archive" },
-        { year: "2022", title: "2022 - 11th Half Yearly Exam Original Papers", url: "https://www.padasalai.net/2022/11/Plus-One-11th-Half-Yearly-Exam-2022-2023-Original-Question-Papers-Answer-Keys-PDF-Download.html", badge: "Original" },
-        { year: "Model", title: "11th Half Yearly Model Exam Question Papers", url: "https://www.padasalai.net/2019/10/Plus-One-11th-Half-Yearly-Exam-Question-Papers-and-Answer-Keys-Download.html", badge: "Model Papers" }
-      ],
-      publicExam: [
-        { year: "2027", title: "2027 March - 11th Public Exam Question Papers & Time Table", url: "https://www.padasalai.net/2025/07/Plus-One-11th-Public-Exam-Question-Papers-2026-March-Answer-Keys-Time-Table-Results-Download.html", badge: "Upcoming 2027", highlight: true },
-        { year: "2026 March", title: "2026 March - 11th Public Exam Question Papers", url: "https://www.padasalai.net/2025/07/Plus-One-11th-Public-Exam-Question-Papers-2026-March-Answer-Keys-Time-Table-Results-Download.html", badge: "Official" },
-        { year: "2025 March", title: "2025 March - 11th Public Exam Question Papers", url: "https://www.padasalai.net/2024/10/Plus-One-11th-Public-Exam-Question-Papers-2025-March-Answer-Keys-Time-Table-Results-Download.html", badge: "Answer Keys" },
-        { year: "2024 March", title: "2024 March - 11th Public Exam Question Papers", url: "https://www.padasalai.net/2024/02/11th-Public-Exam-Question-Papers-2024-March-Answer-Keys-Time-Table-Download.html", badge: "Complete Key" },
-        { year: "2023 March", title: "2023 March - 11th Public Exam Question Papers", url: "https://www.padasalai.net/2023/01/11th-public-exam-march-2023-question-papers-answer-keys-time-table-download.html", badge: "Archive" }
-      ]
-    },
-    "12th": {
-      quarterly: [
-        { year: "2026", title: "2026 - 12th Quarterly Exam Question Papers & Keys", url: "https://www.padasalai.net/2026/05/12th-quarterly-exam-question-papers.html", badge: "Latest 2026", highlight: true },
-        { year: "2025", title: "2025 - 12th Quarterly Exam Original Papers", url: "https://www.padasalai.net/2025/06/12th-quarterly-exam-question-papers.html", badge: "Official Keys" },
-        { year: "2024", title: "2024 - 12th Quarterly Exam Original Papers", url: "https://www.padasalai.net/2024/07/12th-quarterly-exam-question-papers.html", badge: "All Districts" },
-        { year: "Model", title: "12th Quarterly Exam Model Question Papers", url: "https://www.padasalai.net/2020/07/12th-study-materials.html", badge: "Practice Set" }
-      ],
-      halfYearly: [
-        { year: "2026", title: "2026 - 12th Half Yearly Exam Question Papers & Keys", url: "https://www.padasalai.net/2026/05/12th-half-yearly-exam-papers.html", badge: "New 2026", highlight: true },
-        { year: "2025", title: "2025 - 12th Half Yearly Exam Original Papers", url: "https://www.padasalai.net/2025/07/12th-half-yearly-exam-papers.html", badge: "Answer Keys" },
-        { year: "Model", title: "12th Half Yearly Model Exam Question Papers", url: "https://www.padasalai.net/2020/07/12th-study-materials.html", badge: "Model Papers" }
-      ],
-      publicExam: [
-        { year: "2027", title: "2027 March - 12th Public Board Exam Time Table & Keys", url: "https://www.padasalai.net/2025/07/12th-public-exam-papers.html", badge: "Upcoming 2027", highlight: true },
-        { year: "2026 March", title: "2026 March - 12th Public Exam Original Papers & Keys", url: "https://www.padasalai.net/2025/07/12th-public-exam-papers.html", badge: "Official" },
-        { year: "2025 March", title: "2025 March - 12th Public Exam Original Papers & Keys", url: "https://www.padasalai.net/2024/10/12th-public-exam-papers.html", badge: "Complete Keys" }
-      ]
-    },
-    "10th": {
-      quarterly: [
-        { year: "2026", title: "2026 - 10th Quarterly Exam Question Papers & Keys", url: "https://www.padasalai.net/2026/05/10th-quarterly-exam-papers.html", badge: "Latest 2026", highlight: true },
-        { year: "2025", title: "2025 - 10th Quarterly Exam Papers", url: "https://www.padasalai.net/2025/06/10th-quarterly-exam-papers.html", badge: "Official Keys" },
-        { year: "Model", title: "10th SSLC Quarterly Exam Model Papers", url: "https://www.padasalai.net/2020/07/10th-study-materials.html", badge: "Practice Set" }
-      ],
-      halfYearly: [
-        { year: "2026", title: "2026 - 10th Half Yearly Exam Question Papers", url: "https://www.padasalai.net/2026/05/10th-half-yearly-exam-papers.html", badge: "New 2026", highlight: true },
-        { year: "2025", title: "2025 - 10th Half Yearly Exam Papers", url: "https://www.padasalai.net/2025/07/10th-half-yearly-exam-papers.html", badge: "Answer Keys" }
-      ],
-      publicExam: [
-        { year: "2027", title: "2027 March - 10th Public Board Exam Time Table", url: "https://www.padasalai.net/2025/07/10th-public-exam-papers.html", badge: "Upcoming 2027", highlight: true },
-        { year: "2026 March", title: "2026 March - 10th Board Exam Question Papers & Keys", url: "https://www.padasalai.net/2025/07/10th-public-exam-papers.html", badge: "Official" }
-      ]
-    },
-    "default": {
-      quarterly: [
-        { year: "2026", title: "2026 - School Quarterly Term-1 Question Papers", url: "https://www.padasalai.net/2020/07/12th-11th-10th-9th-1st-standard-all-standards-latest-study-materials-english-medium-tamil-medium-download.html", badge: "All Classes" }
-      ],
-      halfYearly: [
-        { year: "2026", title: "2026 - School Half Yearly Term-2 Question Papers", url: "https://www.padasalai.net/2020/07/12th-11th-10th-9th-1st-standard-all-standards-latest-study-materials-english-medium-tamil-medium-download.html", badge: "All Classes" }
-      ],
-      publicExam: [
-        { year: "2026", title: "2026 - Annual Board & Year-End Exam Papers", url: "https://www.padasalai.net/2020/07/12th-11th-10th-9th-1st-standard-all-standards-latest-study-materials-english-medium-tamil-medium-download.html", badge: "All Classes" }
-      ]
-    }
+    quarterly: [
+      { year: "2026", title: "2026 - 11th Quarterly Exam Question Papers & Keys", url: "https://www.padasalai.net/2026/05/11th-quarterly-exam-question-papers-2026-answer-keys-time-table-download-plus-one.html", badge: "Latest 2026", highlight: true },
+      { year: "2025", title: "2025 - 11th Quarterly Exam Original Papers", url: "https://www.padasalai.net/2025/06/11th-quarterly-exam-question-papers-2025-answer-keys-time-table-download-plus-one.html", badge: "Official Keys" },
+      { year: "2024", title: "2024 - 11th Quarterly Exam Question Papers", url: "https://www.padasalai.net/2024/07/11th-quarterly-exam-question-papers-2024-answer-keys-time-table-download-plus-one.html", badge: "All Districts" },
+      { year: "2023", title: "2023 - 11th Quarterly Exam Question Papers", url: "https://www.padasalai.net/2023/07/11th-quarterly-exam-2023-question-papers-answer-keys-time-table-download-plus-one.html", badge: "Archive" },
+      { year: "2022", title: "2022 - 11th Quarterly Exam Question Papers", url: "https://www.padasalai.net/2022/08/plus-one-11th-quarterly-exam-question-paper-answer-keys-pdf-download-2022-2023.html", badge: "Archive" },
+      { year: "2021", title: "2021 - 11th Quarterly Exam Question Papers", url: "https://www.padasalai.net/2019/08/Plus-One-11th-quarterly-exam-key-question-papers-answer-keys-download-2019-2020.html", badge: "Archive" },
+      { year: "2020", title: "2020 - 11th Quarterly Exam Model Papers", url: "https://www.trbtnpsc.com/2018/11/plus-one-11th-exam-quarterly-exam-model-question-paper-2018.html", badge: "Model Papers" },
+      { year: "2019", title: "2019 - 11th Quarterly Exam Question Papers", url: "https://www.padasalai.net/2019/09/11th-quarterly-exam-question-papers-and.html", badge: "Archive" },
+      { year: "Model", title: "11th Quarterly Exam Model Question Papers", url: "https://www.padasalai.net/2019/09/11th-quarterly-exam-question-papers-and.html", badge: "Practice Set" }
+    ],
+    halfYearly: [
+      { year: "2026", title: "2026 - 11th Half Yearly Exam Question Papers & Keys", url: "https://www.padasalai.net/2026/05/11th-standrd-Half-Yearly-Question-Papers-2026-2027-Answer-Keys-Download-plus-one-class-Time-Table.html", badge: "New 2026", highlight: true },
+      { year: "2025", title: "2025 - 11th Half Yearly Exam Question Papers", url: "https://www.padasalai.net/2025/07/11th-Half-Yearly-Question-Papers-2025-Answer-Keys-Download-plus-one-class-Time-Table-2026.html", badge: "Answer Keys" },
+      { year: "2024", title: "2024 - 11th Half Yearly Exam Question Papers", url: "https://www.padasalai.net/2024/08/Plus-One-11th-Half-Yearly-Exam-Question-Papers-2024-2025-Answer-Keys-Time-Table-PDF-Download.html", badge: "PDF Download" },
+      { year: "2023", title: "2023 - 11th Half Yearly Exam Question Papers", url: "https://www.padasalai.net/2023/10/Plus-One-11th-Half-Yearly-Exam-2023-2024-Question-Papers-Answer-Keys-Time-Table-PDF-Download.html", badge: "Archive" },
+      { year: "2022", title: "2022 - 11th Half Yearly Exam Original Papers", url: "https://www.padasalai.net/2022/11/Plus-One-11th-Half-Yearly-Exam-2022-2023-Original-Question-Papers-Answer-Keys-PDF-Download.html", badge: "Original" },
+      { year: "2021", title: "2021 - 11th Half Yearly Exam Question Papers", url: "https://www.padasalai.net/2019/10/Plus-One-11th-Half-Yearly-Exam-Question-Papers-and-Answer-Keys-Download.html", badge: "Archive" },
+      { year: "2020", title: "2020 - 11th Half Yearly Exam Question Papers", url: "https://www.padasalai.net/2019/10/Plus-One-11th-Half-Yearly-Exam-Question-Papers-and-Answer-Keys-Download.html", badge: "Archive" },
+      { year: "2019", title: "2019 - 11th Half Yearly Exam Question Papers", url: "https://www.padasalai.net/2019/10/Plus-One-11th-Half-Yearly-Exam-Question-Papers-and-Answer-Keys-Download.html", badge: "Archive" },
+      { year: "Model", title: "11th Half Yearly Model Exam Question Papers", url: "https://www.padasalai.net/2019/10/Plus-One-11th-Half-Yearly-Exam-Question-Papers-and-Answer-Keys-Download.html", badge: "Model Papers" }
+    ],
+    publicExam: [
+      { year: "2027", title: "2027 March - 11th Public Exam Question Papers & Time Table", url: "https://www.padasalai.net/2025/07/Plus-One-11th-Public-Exam-Question-Papers-2026-March-Answer-Keys-Time-Table-Results-Download.html", badge: "Upcoming 2027", highlight: true },
+      { year: "2027 July", title: "2027 July - 11th Public Supplementary Exam Papers", url: "https://www.padasalai.net/2026/05/11th-public-exam-question-papers-answer-keys-time-table-pdf-download-july-2026..html", badge: "Special Supp" },
+      { year: "2026 March", title: "2026 March - 11th Public Exam Question Papers", url: "https://www.padasalai.net/2025/07/Plus-One-11th-Public-Exam-Question-Papers-2026-March-Answer-Keys-Time-Table-Results-Download.html", badge: "Official" },
+      { year: "2026 July", title: "2026 July - 11th Public Exam Question Papers", url: "https://www.padasalai.net/2026/05/11th-public-exam-question-papers-answer-keys-time-table-pdf-download-july-2026..html", badge: "July Supp" },
+      { year: "2025 March", title: "2025 March - 11th Public Exam Question Papers", url: "https://www.padasalai.net/2024/10/Plus-One-11th-Public-Exam-Question-Papers-2025-March-Answer-Keys-Time-Table-Results-Download.html", badge: "Answer Keys" },
+      { year: "2025 July", title: "2025 July - 11th Public Exam Question Papers", url: "https://www.padasalai.net/2025/04/11th-Public-Exam-Question-Papers-2025-June-Answer-Keys-Time-Table-Download.html", badge: "June/July" },
+      { year: "2024 March", title: "2024 March - 11th Public Exam Question Papers", url: "https://www.padasalai.net/2024/02/11th-Public-Exam-Question-Papers-2024-March-Answer-Keys-Time-Table-Download.html", badge: "Complete Key" },
+      { year: "2024 July", title: "2024 July - 11th Public Exam Question Papers", url: "https://www.padasalai.net/2024/05/11th-Public-Exam-Question-Papers-2024-June-Answer-Keys-Time-Table-Download.html", badge: "June Supp" },
+      { year: "2023 March", title: "2023 March - 11th Public Exam Question Papers", url: "https://www.padasalai.net/2023/01/11th-public-exam-march-2023-question-papers-answer-keys-time-table-download.html", badge: "Archive" },
+      { year: "2023 June", title: "2023 June - 11th Public Exam Question Papers", url: "https://www.padasalai.net/2023/07/11th-public-exam-june-2023-original-question-papers-answer-keys-time-table-download.html", badge: "Archive" },
+      { year: "2022 May", title: "2022 May - 11th Public Exam Question Papers", url: "https://www.padasalai.net/2022/04/Plus-One-11th-Public-Exam-2022-Question-Papers-Answer-Keys-Time-Table-Results-Downloads.html", badge: "Archive" },
+      { year: "2022 July", title: "2022 July - 11th Public Exam Question Papers", url: "https://www.padasalai.net/2022/08/Plus-One-11th-Public-Exam-July-2022-Question-Papers-Answer-Keys-Time-Table-Results-Downloads.html", badge: "Archive" }
+    ]
   },
 
   quickLinksSection: [
@@ -243,12 +270,15 @@ const PADASALAI_DATA = {
   ],
 
   tableOfContents: [
-    { id: "sec-books", title: "School Textbooks & Syllabus", icon: "fa-book" },
-    { id: "sec-lesson-plans", title: "Teachers Corner", icon: "fa-chalkboard-teacher" },
-    { id: "sec-study-materials", title: "Subject Study Materials", icon: "fa-folder-open" },
-    { id: "sec-quarterly", title: "Quarterly Exam Papers", icon: "fa-file-alt" },
-    { id: "sec-halfyearly", title: "Half Yearly Exam Papers", icon: "fa-file-signature" },
-    { id: "sec-public", title: "Public Exam Papers", icon: "fa-award" },
-    { id: "sec-exams", title: "Competitive & Entrance Exams", icon: "fa-graduation-cap" }
+    { id: "sec-books", title: "11th School Textbooks", icon: "fa-book" },
+    { id: "sec-lesson-plans", title: "11th Lesson Plans / Notes", icon: "fa-pencil-ruler" },
+    { id: "sec-syllabus", title: "11th Syllabus 2026-2027", icon: "fa-list-alt" },
+    { id: "sec-study-materials", title: "11th Subject Study Materials", icon: "fa-folder" },
+    { id: "sec-practical", title: "11th Practical & Internal Marks", icon: "fa-vial" },
+    { id: "sec-quarterly", title: "11th Quarterly Question Papers", icon: "fa-file-alt" },
+    { id: "sec-halfyearly", title: "11th Half Yearly Question Papers", icon: "fa-file-signature" },
+    { id: "sec-public", title: "11th Public Exam Question Papers", icon: "fa-award" },
+    { id: "sec-exams", title: "Competitive & Entrance Exams", icon: "fa-star" }
   ]
 };
+// Padasalai.Net Interactive Application Engine

@@ -1,7 +1,7 @@
 // Padasalai.Net Interactive Application Engine
 document.addEventListener('DOMContentLoaded', () => {
-  // Application State - Persistent standard selection across pages
-  let currentClass = localStorage.getItem('padasalai_class') || '11th';
+  // Application State
+  let currentClass = '11th';
   let currentExamCategory = 'quarterly';
   let activeYearFilter = 'All';
   let savedBookmarks = JSON.parse(localStorage.getItem('padasalai_bookmarks') || '[]');
@@ -15,12 +15,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const competitiveExamsGrid = document.getElementById('competitiveExamsGrid');
   const popularPostsContainer = document.getElementById('popularPostsContainer');
   const tocListContainer = document.getElementById('tocListContainer');
-  
-  // Textbooks / Syllabus Section Elements
-  const booksSecHeaderTitle = document.querySelector('#sec-books .section-header-title');
-  const booksLinkPdf = document.querySelector('#sec-books a:nth-of-type(1)');
-  const syllabusLinkPdf = document.querySelector('#sec-books a:nth-of-type(2)');
-  const practicalLinkPdf = document.querySelector('#sec-books a:nth-of-type(3)');
 
   // Controls & Modals
   const searchInputHeader = document.getElementById('searchInputHeader');
@@ -41,24 +35,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const profileModalCloseBtn = document.getElementById('profileModalCloseBtn');
   const profileBookmarksList = document.getElementById('profileBookmarksList');
 
-  // Skillba Lead Alert Form
-  const alertSubscribeForm = document.getElementById('alertSubscribeForm');
-  const alertContactInput = document.getElementById('alertContactInput');
-
   // Initialize UI
   initTheme();
-  highlightActiveNavigationLink();
   renderClassTabs();
   renderSchoolGuides();
-  updateBooksSection();
   renderSubjects();
   renderExamArchives();
   renderCompetitiveExams();
   renderPopularPosts();
   renderTOC();
-  setupSmartTOCScroll();
-  initFaqAccordions();
-  initAlertSubscription();
 
   // Theme Handling
   function initTheme() {
@@ -85,22 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Highlight Active Link in Header
-  function highlightActiveNavigationLink() {
-    const path = window.location.pathname;
-    const pageName = path.split("/").pop() || "index.html";
-    
-    document.querySelectorAll('.nav-menu-links .nav-link').forEach(link => {
-      const linkHref = link.getAttribute('href');
-      if (linkHref === pageName || (pageName === "index.html" && (linkHref === "#" || linkHref === "index.html"))) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  }
-
-  // Render Class Selector Tabs
+  // Render Class Selector Tabs (12th, 11th, 10th, 9th, etc.)
   function renderClassTabs() {
     if (!classTabsContainer) return;
     classTabsContainer.innerHTML = PADASALAI_DATA.classes.map(cls => `
@@ -116,41 +86,10 @@ document.addEventListener('DOMContentLoaded', () => {
     classTabsContainer.querySelectorAll('.class-tab-pill').forEach(btn => {
       btn.addEventListener('click', (e) => {
         currentClass = e.currentTarget.getAttribute('data-class');
-        localStorage.setItem('padasalai_class', currentClass);
         renderClassTabs();
-        updateBooksSection();
-        renderSubjects();
-        renderExamArchives();
         showToast(`Switched view to ${currentClass} Standard`);
       });
     });
-  }
-
-  // Update Textbook Links & Section Titles Based on Class
-  function updateBooksSection() {
-    if (!booksSecHeaderTitle) return;
-    const selectedClassObj = PADASALAI_DATA.classes.find(c => c.id === currentClass);
-    const className = selectedClassObj ? selectedClassObj.name : `${currentClass} Standard`;
-    
-    booksSecHeaderTitle.textContent = `${className} - Textbooks & Syllabus`;
-
-    const resources = PADASALAI_DATA.booksAndSyllabus[currentClass] || PADASALAI_DATA.booksAndSyllabus["default"];
-    
-    if (booksLinkPdf) {
-      booksLinkPdf.href = resources.booksUrl;
-      booksLinkPdf.querySelector('.bullet-link-text').textContent = `${className} School Books PDF`;
-      booksLinkPdf.onclick = (e) => openPdfModal(e, `${className} School Text Books PDF 2026-2027`, 'Textbooks', resources.booksUrl);
-    }
-    if (syllabusLinkPdf) {
-      syllabusLinkPdf.href = resources.syllabusUrl;
-      syllabusLinkPdf.querySelector('.bullet-link-text').textContent = `${className} Syllabus PDF`;
-      syllabusLinkPdf.onclick = (e) => openPdfModal(e, `${className} Syllabus 2026-2027 All Subjects`, 'Syllabus', resources.syllabusUrl);
-    }
-    if (practicalLinkPdf) {
-      practicalLinkPdf.href = resources.practicalUrl;
-      practicalLinkPdf.querySelector('.bullet-link-text').textContent = `${className} Practical Materials`;
-      practicalLinkPdf.onclick = (e) => openPdfModal(e, `${className} Practical / Internal Marks Materials`, 'Practical', resources.practicalUrl);
-    }
   }
 
   // Render School Guides (Left Sidebar)
@@ -170,10 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  // Render Subject Study Materials Grid based on active Class
+  // Render 11th Subject Study Materials Grid
   function renderSubjects(filteredQuery = "") {
     if (!subjectsGrid) return;
-    const list = PADASALAI_DATA.subjects[currentClass] || PADASALAI_DATA.subjects["default"];
+    const list = PADASALAI_DATA.subjects["11th"] || [];
     
     const query = filteredQuery.trim().toLowerCase();
     const filtered = query === "" 
@@ -184,21 +123,13 @@ document.addEventListener('DOMContentLoaded', () => {
           sub.desc.toLowerCase().includes(query)
         );
 
-    const selectedClassObj = PADASALAI_DATA.classes.find(c => c.id === currentClass);
-    const className = selectedClassObj ? selectedClassObj.name : `${currentClass} Standard`;
-
     if (filtered.length === 0) {
-      subjectsGrid.innerHTML = `
-        <div style="grid-column: 1/-1; padding: 30px; text-align: center; color: var(--text-muted); background: var(--bg-card-subtle); border-radius: var(--radius-md); border: 1px dashed var(--border-light);">
-          <i class="fas fa-search" style="font-size: 2rem; margin-bottom: 12px; opacity: 0.5;"></i>
-          <p>No subject study materials found matching "${filteredQuery}" for ${className}.</p>
-        </div>
-      `;
+      subjectsGrid.innerHTML = `<p style="grid-column: 1/-1; padding: 20px; color: var(--text-muted); text-align: center;">No subjects found matching "${filteredQuery}"</p>`;
       return;
     }
 
     subjectsGrid.innerHTML = filtered.map(sub => `
-      <div class="subject-card" onclick="openPdfModal(event, '${className} ${sub.name} Study Materials', 'Subject Study Material', '${sub.url}')">
+      <div class="subject-card" onclick="openPdfModal(event, '11th ${sub.name} Study Materials', 'Subject Study Material', '${sub.url}')">
         <div class="subject-card-top">
           <div class="subject-icon-wrap ${sub.color}">
             <i class="fas ${sub.icon}"></i>
@@ -214,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     `).join('');
   }
 
-  // Render Exam Archives
+  // Render Exam Archives (Quarterly, Half Yearly, Public)
   function renderExamArchives() {
     renderYearPills();
     renderExamList();
@@ -240,9 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function renderExamList(filteredQuery = "") {
     if (!examListContainer) return;
-    
-    const classExams = PADASALAI_DATA.examArchives[currentClass] || PADASALAI_DATA.examArchives["default"];
-    const list = classExams[currentExamCategory] || [];
+    const list = PADASALAI_DATA.examArchives["11th"][currentExamCategory] || [];
     
     let filtered = activeYearFilter === 'All' 
       ? list 
@@ -257,17 +186,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (filtered.length === 0) {
-      examListContainer.innerHTML = `<p style="padding: 24px; text-align: center; color: var(--text-muted); width: 100%;">No exam papers found matching filters.</p>`;
+      examListContainer.innerHTML = `<p style="padding: 16px; color: var(--text-muted);">No exam papers found for year ${activeYearFilter}.</p>`;
       return;
     }
 
     examListContainer.innerHTML = filtered.map(item => `
       <li class="bullet-link-item ${item.highlight ? 'highlighted-exam-row' : ''}">
-        <div class="bullet-dot" style="background: ${item.highlight ? 'var(--accent-coral)' : 'var(--text-muted)'};"></div>
+        <span class="bullet-dot"></span>
         <a href="${item.url}" target="_blank" class="bullet-link-text" onclick="openPdfModal(event, '${item.title}', 'Exam Question Paper', '${item.url}')">
           ${item.title}
         </a>
-        <span class="bullet-badge" style="${item.highlight ? 'background: rgba(238,93,56,0.15); color: var(--accent-coral); font-weight:700;' : ''}">${item.badge}</span>
+        <span class="bullet-badge">${item.badge}</span>
       </li>
     `).join('');
   }
@@ -318,98 +247,11 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderTOC() {
     if (!tocListContainer) return;
     tocListContainer.innerHTML = PADASALAI_DATA.tableOfContents.map(toc => `
-      <a href="#${toc.id}" class="toc-item-link" data-toc-target="${toc.id}">
+      <a href="#${toc.id}" class="toc-item-link" onclick="closeTOC()">
         <i class="fas ${toc.icon}" style="color: var(--accent-coral); width: 18px; text-align: center;"></i>
         <span>${toc.title}</span>
       </a>
     `).join('');
-  }
-
-  // Smart Navigation Routing across separate pages or tabs
-  function setupSmartTOCScroll() {
-    document.addEventListener('click', (e) => {
-      const link = e.target.closest('[data-toc-target]');
-      if (!link) return;
-      
-      const targetId = link.getAttribute('data-toc-target');
-      closeTOC();
-
-      const path = window.location.pathname;
-      const pageName = path.split("/").pop() || "index.html";
-
-      if (targetId === 'sec-books') {
-        if (pageName !== "books.html") {
-          window.location.href = "books.html";
-          return;
-        }
-      }
-      
-      if (targetId === 'sec-lesson-plans') {
-        if (pageName !== "teachers-corner.html") {
-          window.location.href = "teachers-corner.html";
-          return;
-        }
-      }
-
-      if (targetId === 'sec-study-materials') {
-        if (pageName !== "study-materials.html") {
-          window.location.href = "study-materials.html";
-          return;
-        }
-      }
-
-      if (targetId === 'sec-quarterly' || targetId === 'sec-halfyearly' || targetId === 'sec-public') {
-        if (pageName !== "exams.html") {
-          let category = "quarterly";
-          if (targetId === "sec-halfyearly") category = "halfYearly";
-          if (targetId === "sec-public") category = "publicExam";
-          window.location.href = `exams.html?cat=${category}`;
-          return;
-        } else {
-          let category = "quarterly";
-          if (targetId === "sec-halfyearly") category = "halfYearly";
-          if (targetId === "sec-public") category = "publicExam";
-          const tab = document.querySelector(`[data-exam-cat="${category}"]`);
-          if (tab) tab.click();
-        }
-      }
-
-      if (targetId === 'sec-exams') {
-        if (pageName !== "competitive-exams.html") {
-          window.location.href = "competitive-exams.html";
-          return;
-        }
-      }
-
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        e.preventDefault();
-        const offset = 80;
-        const bodyRect = document.body.getBoundingClientRect().top;
-        const elementRect = targetElement.getBoundingClientRect().top;
-        const elementPosition = elementRect - bodyRect;
-        const offsetPosition = elementPosition - offset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
-      }
-    });
-
-    const path = window.location.pathname;
-    const pageName = path.split("/").pop() || "index.html";
-    if (pageName === "exams.html") {
-      const urlParams = new URLSearchParams(window.location.search);
-      const cat = urlParams.get('cat');
-      if (cat) {
-        const tab = document.querySelector(`[data-exam-cat="${cat}"]`);
-        if (tab) {
-          tab.click();
-          window.history.replaceState({}, document.title, window.location.pathname);
-        }
-      }
-    }
   }
 
   // Floating TOC Toggle
@@ -429,51 +271,6 @@ document.addEventListener('DOMContentLoaded', () => {
   window.closeTOC = function() {
     if (tocPopover) tocPopover.classList.remove('show');
   };
-
-  // Skillba-style Interactive FAQ Accordions
-  function initFaqAccordions() {
-    const questions = document.querySelectorAll('.faq .question');
-    questions.forEach(q => {
-      q.addEventListener('click', () => {
-        const isOpen = q.classList.contains('open');
-        const answer = q.nextElementSibling;
-        
-        // Close other FAQs in same column
-        questions.forEach(otherQ => {
-          if (otherQ !== q) {
-            otherQ.classList.remove('open');
-            if (otherQ.nextElementSibling) {
-              otherQ.nextElementSibling.style.display = 'none';
-            }
-          }
-        });
-
-        // Toggle current FAQ
-        if (isOpen) {
-          q.classList.remove('open');
-          if (answer) answer.style.display = 'none';
-        } else {
-          q.classList.add('open');
-          if (answer) answer.style.display = 'block';
-        }
-      });
-    });
-  }
-
-  // Skillba-style Exam Alert Subscription
-  function initAlertSubscription() {
-    if (!alertSubscribeForm) return;
-    alertSubscribeForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const val = alertContactInput ? alertContactInput.value.trim() : '';
-      if (!val) {
-        showToast('Please enter your WhatsApp Number or Email ID');
-        return;
-      }
-      showToast('🎉 Subscribed successfully! You will receive instant exam alerts.');
-      if (alertContactInput) alertContactInput.value = '';
-    });
-  }
 
   // Synchronized Dual Search Bars Functionality
   function performLiveSearch(query) {
